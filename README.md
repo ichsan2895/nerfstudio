@@ -87,5 +87,5 @@ It increases from 28,7 dB to 29,2 dB PSNR (extra 0,5 dB) for `apartement eyeful 
 Yes it will be biased since eval images already leaks into training dataset. But this repo is intended for END USER which does not care about PSNR, SSIM, etc. They care only the end product.
 
 ### Is it compatible with original Nerfstudio?
-If you resume the training from original nerfstudio's checkpoint = **No**, it will be error because different count of training dataset.
-If you training from `ns-process-data images/videos/odm/realitycapture/metashape` etc from original nerfstudio = **Yes**, it compatibles
+If you resume the training from original nerfstudio's checkpoint = **No**, it will be error because different count of training dataset.  
+If you train from `ns-process-data images/videos/odm/realitycapture/metashape` etc from original nerfstudio = **Yes**, it is compatible
