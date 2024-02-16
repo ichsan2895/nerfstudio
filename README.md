@@ -73,10 +73,19 @@ I got extra quality boost, about 0.3 - 0,7 dB in PSNR evaluation of all images. 
 2. The original `convert.py` uses `magick command` for resizing images. This repo uses `OpenCV` for resizing images.
 
 ### Why uses all training images?
-It mimics INRIA 3DGS which uses all images for training data
+It mimics INRIA 3DGS which uses all images for training data.
+
+![image](https://github.com/ichsan2895/nerfstudio/assets/60387342/ec3afe28-429a-4816-a6fb-b1c3e864b471)
 
 ### Will it be overfitting?
 Yes, thats okay for me. Overfitting is not problem because we don't generate entirely new scene. But we must maximize the existing scene quality.
 
 ### How about quality?
 It increases from 28,7 dB to 29,2 dB PSNR (extra 0,5 dB) for `apartement eyeful tower 1k JPEGs` dataset. Another dataset is not yet tested. Hopefully in short of time.
+
+### You can NOT compare the metrics since you have trained all images included eval images.
+Yes it will be biased since eval images already leaks into training dataset. But this repo is intended for END USER which does not care about PSNR, SSIM, etc. They care only the end product.
+
+### Is it compatible with original Nerfstudio?
+If you resume the training from original nerfstudio's checkpoint = **No**, it will be error because different count of training dataset.
+If you training from `ns-process-data images/videos/odm/realitycapture/metashape` etc from original nerfstudio = **Yes**, it compatibles
