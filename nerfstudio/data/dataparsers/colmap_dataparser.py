@@ -225,10 +225,16 @@ class ColmapDataParser(DataParser):
             # find train and eval indices based on the eval_mode specified
             if self.config.eval_mode == "fraction":
                 i_train, i_eval = get_train_eval_split_fraction(image_filenames, self.config.train_split_fraction)
+                i_train = [i for i, path in enumerate(image_filenames)]
+                i_train = np.array(i_train, dtype=np.int32)
             elif self.config.eval_mode == "filename":
                 i_train, i_eval = get_train_eval_split_filename(image_filenames)
+                i_train = [i for i, path in enumerate(image_filenames)]
+                i_train = np.array(i_train, dtype=np.int32)
             elif self.config.eval_mode == "interval":
                 i_train, i_eval = get_train_eval_split_interval(image_filenames, self.config.eval_interval)
+                i_train = [i for i, path in enumerate(image_filenames)]
+                i_train = np.array(i_train, dtype=np.int32)
             elif self.config.eval_mode == "all":
                 CONSOLE.log(
                     "[yellow] Be careful with '--eval-mode=all'. If using camera optimization, the cameras may diverge in the current implementation, giving unpredictable results."
