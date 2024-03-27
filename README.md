@@ -89,3 +89,15 @@ Yes it will be biased since eval images already leaks into training dataset. But
 ### Is it compatible with original Nerfstudio?
 If you resume the training from original nerfstudio's checkpoint = **No**, it will be error because different count of training dataset.  
 If you train from `ns-process-data images/videos/odm/realitycapture/metashape` etc from original nerfstudio = **Yes**, it is compatible
+
+## INSTALLATION
+```
+# make sure you uninstall the previous gsplat and nerfstudio
+pip uninstall gsplat nerfstudio
+
+# install it from pip
+pip install git+https://github.com/nerfstudio-project/gsplat.git@v0.1.8
+pip install git+https://github.com/ichsan2895/nerfstudio.git@v1.1
+```
+
+Tested on `Torch 2.0.1+cu118` and `Python 3.10` in `Ubuntu 22.04 LTS`
